@@ -1,0 +1,1 @@
+curl -d '{ "codigo": 9, "nome": "Materiais Construcao", "descricao": "Aqui voce encontra todo o tipo de materiais para construcao", "listaProdutos": []  }' -H "Content-Type: application/json" -X PUT http://localhost:8080/departamentos

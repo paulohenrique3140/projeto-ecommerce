@@ -1,0 +1,1 @@
+curl -d '{ "nome": "", "descricao": ""  }' -H "Content-Type: application/json" -X POST localhost:8080/departamentos

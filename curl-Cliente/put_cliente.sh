@@ -1,0 +1,1 @@
+curl -d '{"id": 12, "nome": "Sara Zambianchi", "email": "132564i@mail.com", "senha": "0454", "rg": "00015164", "cpf": "001112134564", "listaEnderecos": [] }' -H "Content-Type: application/json" -X PUT http://localhost:8080/clientes

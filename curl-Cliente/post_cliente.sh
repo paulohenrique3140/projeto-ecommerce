@@ -1,0 +1,1 @@
+curl -d '{ "nome": "Victor", "email": "v@v", "senha": "123" , "rg": "123" , "cpf": "123"}' -H "Content-Type: application/json" -X POST localhost:8080/clientes
