@@ -44,9 +44,13 @@ public class Cliente {
   /*@OneToMany(cascade=CascadeType.REMOVE, fetch=FetchType.EAGER,mappedBy="presente", orphanRemoval=true)
     @Cascade(org.hibernate.annotations.CascadeType.DELETE_ORPHAN)*/
 
-  @OneToMany(mappedBy="cliente", cascade = CascadeType.ALL, orphanRemoval = true)
+  @OneToMany(mappedBy="cliente", cascade = CascadeType.ALL)
   @JsonIgnoreProperties("cliente")
   private List<Endereco> listaEnderecos;
+
+  /*@OneToMany(mappedBy="cliente", cascade = CascadeType.ALL)
+  @JsonIgnoreProperties("cliente")
+  private List<Pedido> listaPedidos;*/
 
   public Integer getId() {
     return id;
@@ -103,6 +107,14 @@ public class Cliente {
   public void setListaEnderecos(List<Endereco> listaEnderecos) {
     this.listaEnderecos = listaEnderecos;
   }
+
+  /*public List<Pedido> getListaPedidos() {
+    return listaPedidos;
+  }
+
+  public void setListaPedidos(List<Pedido> listaPedidos) {
+    this.listaPedidos = listaPedidos;
+  }*/
 
   
 }

@@ -1,1 +1,0 @@
-curl localhost:8080/departamentos/"id" -X DELETE

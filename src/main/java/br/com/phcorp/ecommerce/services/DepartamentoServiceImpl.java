@@ -50,10 +50,6 @@ public class DepartamentoServiceImpl implements IDepartamentoService {
     return dao.findById(id).orElse(null);
   }
 
-  @Override
-  public void excluirDepartamento(Integer id) {
-    //busca pela primary key e faz a exclusao, caso nao encontre (orElse), retorna null
-    dao.deleteById(id);
-  }
+  
   
 }

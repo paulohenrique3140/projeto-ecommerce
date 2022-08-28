@@ -41,12 +41,13 @@ public class Pedido {
   @Column(name="status", length = 2)
   private String status;
 
-  @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
+  @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL, orphanRemoval = true)
   @JsonIgnoreProperties("pedido")
   private List<ItemPedido> itens;
 
   @ManyToOne
   @JoinColumn(name="cliente_id")
+  //@JsonIgnoreProperties("listaPedidos")
   private Cliente cliente;
   
   public Integer getNumero() {

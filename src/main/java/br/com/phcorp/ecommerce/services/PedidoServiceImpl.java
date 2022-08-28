@@ -1,5 +1,7 @@
 package br.com.phcorp.ecommerce.services;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +27,16 @@ public class PedidoServiceImpl implements IPedidoService {
   @Override
   public Pedido recuperarPeloNumero(Integer numero) {
     return dao.findById(numero).orElse(null);
+  }
+
+  @Override
+  public void excluirPedido(Integer numero) {
+    dao.deleteById(numero);    
+  }
+
+  @Override
+  public ArrayList<Pedido> buscarTodos() {
+    return (ArrayList<Pedido>)dao.findAll();
   }
   
 }

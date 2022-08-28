@@ -36,5 +36,13 @@ public class EnderecoServiceImpl implements IEnderecoService {
   public void excluirEndereco(Integer id) {
     dao.deleteById(id);    
   }
+
+  @Override
+  public Endereco atualizarEndereco(Endereco dados) {
+    if (dados.getNum_seq() != null && dados.getLogradouro() != null){
+      return dao.save(dados);
+    }
+    return null;
+  }
   
 }

@@ -1,5 +1,7 @@
 package br.com.phcorp.ecommerce.controller;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,5 +33,10 @@ public class PedidoController {
   public ResponseEntity<Pedido> inserirNovoPediro(@RequestBody Pedido novo){
     return ResponseEntity.ok(service.inserirNovoPedido(novo));
   }
-  
+
+  @GetMapping("/pedidos")
+  public ArrayList<Pedido> buscarTodos(){
+    return service.buscarTodos();
+  }
+
 }

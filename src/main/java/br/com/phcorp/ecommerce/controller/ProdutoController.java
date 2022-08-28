@@ -2,13 +2,12 @@ package br.com.phcorp.ecommerce.controller;
 
 import java.util.ArrayList;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -44,10 +43,13 @@ public class ProdutoController {
     return ResponseEntity.badRequest().build();
   }
 
-  @DeleteMapping("/produtos/{id}")
-  public ResponseEntity<Produto> excluirProduto(@PathVariable Integer id){
-    service.excluirProduto(id);
-    return ResponseEntity.ok(null);
+  @PutMapping("/produtos")
+  public ResponseEntity<Produto> atualizarProduto(@RequestBody Produto dados){
+    Produto res = service.atualizarProduto(dados);
+    if (res != null){
+    return ResponseEntity.ok(dados);
+    } 
+    return ResponseEntity.status(404).build();
   }
   
 }

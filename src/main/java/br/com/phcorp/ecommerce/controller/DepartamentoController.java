@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -46,12 +46,6 @@ public class DepartamentoController {
       return ResponseEntity.ok(res);
     }
     return ResponseEntity.badRequest().build();
-  }
-
-  @DeleteMapping("/departamentos/{id}")
-  public ResponseEntity<Departamento> excluirDepartamento(@PathVariable Integer id){ //Em resumo, o @PathVariable é utilizado quando o valor da variável é passada diretamente na URL, mas não como um parametro que você passa após o sinal de interrogação ( ? ) mas sim quando o valor faz parte da url
-    service.excluirDepartamento(id);
-    return ResponseEntity.ok(null);
   }
 
   @GetMapping("/departamentos/{codigo}")

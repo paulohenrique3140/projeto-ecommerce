@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -14,13 +13,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import br.com.phcorp.ecommerce.model.Cliente;
-import br.com.phcorp.ecommerce.services.ClienteServiceImpl;
+import br.com.phcorp.ecommerce.services.IClienteService;
 
 @RestController
 public class ClienteController {
   
   @Autowired
-  private ClienteServiceImpl service;
+  private IClienteService service;
 
   @GetMapping("/clientes")
   public ArrayList<Cliente> buscarTodos(){
@@ -43,12 +42,6 @@ public class ClienteController {
     return ResponseEntity.ok(res);
     }
     return ResponseEntity.badRequest().build();
-  }
-
-  @DeleteMapping("/clientes/{id}")
-  public ResponseEntity<Cliente> excluirCadastro(@PathVariable Integer id){
-    service.excluirCadastro(id);
-    return ResponseEntity.ok(null);
   }
 
   @GetMapping("/clientes/{id}")

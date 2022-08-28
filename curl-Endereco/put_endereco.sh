@@ -1,0 +1,1 @@
+curl -d '{ "num_seq": 11, "tipo": "Av", "logradouro": "Rubens Neves", "numero": 280, "compl": "Centro", "bairro": "Carapicuiba", "cidade": "Carapicuiba", "cep": "06255-122", "estado": "RJ", "cliente": {"id": 14} }' -H "Content-Type: application/json" -X PUT http://localhost:8080/enderecos

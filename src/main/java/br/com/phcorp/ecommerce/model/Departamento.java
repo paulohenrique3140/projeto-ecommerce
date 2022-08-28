@@ -28,7 +28,7 @@ public class Departamento {
   @Column(name = "descricao", nullable = true, columnDefinition = "TEXT")
   private String descricao;
   
-  @OneToMany(mappedBy = "departamento", cascade = CascadeType.ALL, orphanRemoval = true) 
+  @OneToMany(mappedBy = "departamento", cascade = CascadeType.ALL) 
   @JsonIgnoreProperties("departamento")
   private List<Produto> listaProdutos;               
 /* no mappedBy eu vou lá na classe Model da tabela

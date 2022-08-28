@@ -9,5 +9,5 @@ public interface IProdutoService {
   public ArrayList<Produto> recuperarTodos();
   public Produto recuperarPeloCodigo(Integer codigo);
   public Produto cadastrarNovo(Produto novo);
-  public void excluirProduto(Integer id);
+  public Produto atualizarProduto(Produto dados);
 }

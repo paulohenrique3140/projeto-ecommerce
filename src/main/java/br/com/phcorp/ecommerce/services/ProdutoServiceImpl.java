@@ -30,8 +30,11 @@ public class ProdutoServiceImpl implements IProdutoService {
   }
 
   @Override
-  public void excluirProduto(Integer id) {
-    dao.deleteById(id);    
+  public Produto atualizarProduto(Produto dados) {
+    if (dados.getCodigo() != null && dados.getNome() != null){
+      return dao.save(dados);
+    }
+    return null;
   }
   
 }
