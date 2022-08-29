@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.phcorp.ecommerce.model.Cliente;
 import br.com.phcorp.ecommerce.services.IClienteService;
@@ -51,6 +52,11 @@ public class ClienteController {
       return ResponseEntity.ok(res);
     }
     return ResponseEntity.status(404).build();
+  }
+
+  @GetMapping("/clientes/busca")
+  public ArrayList<Cliente> buscarPorNome(@RequestParam(name = "palavraChave") String palavraChave){
+    return service.buscarPorNome(palavraChave);
   }
   
 }

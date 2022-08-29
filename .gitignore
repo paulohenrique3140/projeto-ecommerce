@@ -36,6 +36,7 @@ build/
 .mvn
 mvnw
 mvnw.cmd
+.mwb
 
 # Created by https://www.toptal.com/developers/gitignore/api/windows,linux,macos,eclipse,vs,intellij
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,linux,macos,eclipse,vs,intellij

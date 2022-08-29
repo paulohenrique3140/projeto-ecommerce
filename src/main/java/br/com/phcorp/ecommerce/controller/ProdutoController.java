@@ -51,5 +51,10 @@ public class ProdutoController {
     } 
     return ResponseEntity.status(404).build();
   }
+
+  @GetMapping("/ordemPreco")
+  public ArrayList<Produto> ordernarPorPreco(){
+    return service.ordenarPorPreco();
+  }
   
 }

@@ -31,7 +31,11 @@ public class PedidoController {
 
   @PostMapping("/pedidos")
   public ResponseEntity<Pedido> inserirNovoPediro(@RequestBody Pedido novo){
-    return ResponseEntity.ok(service.inserirNovoPedido(novo));
+    Pedido res = service.inserirNovoPedido(novo);
+    if (res != null){
+    return ResponseEntity.ok(res);
+    }
+    return ResponseEntity.badRequest().build();
   }
 
   @GetMapping("/pedidos")

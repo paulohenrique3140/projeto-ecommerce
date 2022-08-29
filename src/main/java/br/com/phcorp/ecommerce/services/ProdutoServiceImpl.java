@@ -36,5 +36,10 @@ public class ProdutoServiceImpl implements IProdutoService {
     }
     return null;
   }
+
+  @Override
+  public ArrayList<Produto> ordenarPorPreco() {
+    return dao.findByOrderByPreco();
+  }
   
 }

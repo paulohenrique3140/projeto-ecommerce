@@ -23,12 +23,6 @@ public class ItemPedido {
   @Column(name = "quantidade")
   private Integer quantidade;
 
-  @Column(name = "valor_unitario")
-  private Double valorUnitario;
-
-  @Column(name = "valor_total")
-  private Double valorTotal;
-
   @ManyToOne
   @JoinColumn(name = "produto_codigo")
   private Produto produto;
@@ -52,22 +46,6 @@ public class ItemPedido {
 
   public void setQuantidade(Integer quantidade) {
     this.quantidade = quantidade;
-  }
-
-  public Double getValorUnitario() {
-    return valorUnitario;
-  }
-
-  public void setValorUnitario(Double valorUnitario) {
-    this.valorUnitario = valorUnitario;
-  }
-
-  public Double getValorTotal() {
-    return valorTotal;
-  }
-
-  public void setValorTotal(Double valorTotal) {
-    this.valorTotal = valorTotal;
   }
 
   public Produto getProduto() {

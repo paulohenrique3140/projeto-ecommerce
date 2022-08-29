@@ -10,4 +10,5 @@ public interface IProdutoService {
   public Produto recuperarPeloCodigo(Integer codigo);
   public Produto cadastrarNovo(Produto novo);
   public Produto atualizarProduto(Produto dados);
+  public ArrayList<Produto> ordenarPorPreco();
 }

@@ -44,5 +44,10 @@ public class ClienteServiceImpl implements IClienteService{
   public void excluirCadastro(Integer id) {
     dao.deleteById(id);
   }
+
+  @Override
+  public ArrayList<Cliente> buscarPorNome(String palavraChave) {
+    return dao.findByNomeContaining(palavraChave);
+  }
   
 }
