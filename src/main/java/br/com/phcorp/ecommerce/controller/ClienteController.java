@@ -1,17 +1,25 @@
 package br.com.phcorp.ecommerce.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 
 import br.com.phcorp.ecommerce.model.Cliente;
 import br.com.phcorp.ecommerce.services.IClienteService;
@@ -28,10 +36,12 @@ public class ClienteController {
   }
 
   @PostMapping("/clientes")
-  public ResponseEntity<Cliente> criarNovo(@RequestBody Cliente novo){
+  public ResponseEntity<String> criarNovo(@Valid @RequestBody Cliente novo){
     Cliente res = service.criarNovo(novo);
     if (res != null){
-      return ResponseEntity.ok(res);
+      String cliente = novo.getNome();
+      String msg = "Bem vindo " +cliente+"!";
+      return ResponseEntity.ok(msg);
     }
     return ResponseEntity.badRequest().build();
   }
@@ -57,6 +67,19 @@ public class ClienteController {
   @GetMapping("/clientes/busca")
   public ArrayList<Cliente> buscarPorNome(@RequestParam(name = "palavraChave") String palavraChave){
     return service.buscarPorNome(palavraChave);
+  }
+
+  @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public Map<String, String> handleValidationExceptions(
+      MethodArgumentNotValidException ex) {
+       Map<String, String> errors = new HashMap<>();
+        ex.getBindingResult().getAllErrors().forEach((error) -> {
+          String fieldName = ((FieldError) error).getField();
+          String errorMessage = error.getDefaultMessage();
+          errors.put(fieldName, errorMessage);
+    });
+    return errors;
   }
   
 }
