@@ -8,6 +8,7 @@ Além disso, utilizei o CrudRepository para gerar os códigos MySQL em tempo rea
 - Controllers: Responsável pelo request/response;
 - Services (Faz o intermédio entre controllers e dao/model). Contém outros dois tipos:
 1) Service Interfaces: Contém os cabeçalhos dos métodos que os controllers tem acesso;
+<<<<<<< HEAD
 2) Service Implementations: Contém as implementações dos métodos declarados nas interfaces.
 - Model: Camada que contém as classes de entidades;
 - DAO: Interface responsável por extender a biblioteca CrudRepository, que é a camada que faz a comunicação entre as classes e o banco de dados, gerando códigos MySQL.
@@ -29,4 +30,6 @@ Implementei as seguintes funcionalidades e as testei via Postman:
 - Cadastrar pedido informando os ítens contidos nele (produtos, quantidade, valor unitário, valor total, etc),
 - Listar pedidos exibindo detalhes: Lista de ítens, cliente, endereço, produto, data, departamento, etc.
 
-Além disso criei arquivos curl para automatizar este processo de testes de métodos get, post, put e delete.
+
+Além disso, criei uma automação para efetuar os testes listados acima através de comandos CURL direto no terminal
+
